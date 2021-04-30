@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text,Flex,Image } from '@chakra-ui/react';
 
 const ProdusCard = ({ produs })=> {
   if (!produs || !produs.title || !produs.text) {
@@ -10,9 +10,9 @@ const ProdusCard = ({ produs })=> {
 
   return (
     <Link to={`/produs/${produs._id}`}>
-      <Box ml="37%"
+      <Flex alignItems="center" justifyContent="center">
+      <Box 
         width="15em"
-        height="10em"
         overflow="hidden"
         padding="12px"
         boxShadow="md"
@@ -20,6 +20,7 @@ const ProdusCard = ({ produs })=> {
         marginBottom="12px"
         bg="#ffee32"
       >
+        
         <Text 
           fontSize="lg"
           color="#202020"
@@ -32,6 +33,13 @@ const ProdusCard = ({ produs })=> {
         >
           {produs.title}
         </Text>
+        <Flex alignItems="center" justifyContent="center"> 
+        <Image mt="2%"
+        border="1px solid black"
+        boxSize="150px"
+        objectFit="cover"
+        src="https://st3.depositphotos.com/1005404/12881/i/950/depositphotos_128813058-stock-photo-wheel-car-and-repair-symbol.jpg"/>
+        </Flex>
         <Text
         color="#202020"
           mt="10%"
@@ -53,6 +61,7 @@ const ProdusCard = ({ produs })=> {
           Pret: {produs.price} $
         </Text>
       </Box>
+      </Flex>
     </Link>
   );
 }
