@@ -78,7 +78,7 @@ function App() {
     <div className="App">
 
 
-<Box bg="#184e77" px={4}>
+<Box bg="#202020" px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
              
           <HStack spacing={8} alignItems={'center'} >
@@ -110,7 +110,7 @@ function App() {
              color="white"
               fontSize={'16px'}
               fontWeight={400}
-              bg={'#184e77'}
+              bg={'#202020'}
               p={"10px"} 
               type={"button"}
               onClick={loguot}
@@ -122,7 +122,7 @@ function App() {
              color="white"
               fontSize={'16px'}
               fontWeight={400}
-              bg={'#184e77'}
+              bg={'##202020'}
               p={"10px"} 
               
               >
@@ -137,10 +137,10 @@ function App() {
             fontSize={'16px'}
             color={'black'}
             borderRadius={"5%"}
-            bg={'#d9ed92'}
+            bg={'#ffd100'}
             p={"10px"}
             _hover={{
-              bg: '#ef1a4c',
+              bg: '#ffee32',
               borderRadius:"5%",
               color:"white"
             }}>

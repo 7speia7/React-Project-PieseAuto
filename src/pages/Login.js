@@ -77,10 +77,11 @@ p={8}>
   <Stack spacing={10}>
     {error && <div>{error}</div>}
     <Button type="Submit"
-      bg={'blue.400'}
+      bg={'#202020'}
       color={'white'}
       _hover={{
-        bg: 'blue.500',
+        bg: '#ffee32',
+        color:"black"
       }}>
       Sign in
     </Button>

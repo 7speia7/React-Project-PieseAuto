@@ -50,7 +50,7 @@ function DeleteModal() {
           Sunteti siguri ca doriti sa stergeti produsul?
         </Heading>
         <Button
-          backgroundColor="blue.600"
+          backgroundColor="#202020"
           color="white"
           mr="32px"
           onClick={onDismiss}

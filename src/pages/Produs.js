@@ -38,19 +38,21 @@ mb="1%"
 w={"50%"}
 p={8}>
     <Flex justifyContent="space-between">
-      <Box w="100%">
-        <Heading as="h1" pb="36px">
+      <Box w="90%">
+        <Heading as="h1" pb="36px" fontSize="2.5em" >
           {selectedProdus.title}
         </Heading>
 
-        <Text>{selectedProdus.text}</Text>
-        <Text>{selectedProdus.price}</Text>
+        <Text fontSize="2em">Descriere: {selectedProdus.text}</Text>
+        <Text mt="5%"
+        fontSize="2em"       
+        >Pret: {selectedProdus.price} $</Text>
       </Box>
 
       <Box w="25%">
         <Link to={`/produs/${selectedProdus._id}/edit`}>
           <Button
-            backgroundColor="blue.600"
+            backgroundColor="#202020"
             color="white"
             textAlign="center"
             w="120px"

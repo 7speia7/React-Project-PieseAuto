@@ -35,6 +35,7 @@ function EditProdus(props) {
     const produs_id = selectedProdus._id;
     dispatch(editProdusAction(produs_id, produs)).then(() => {
       history.push('/');
+      window.location.reload();
     });
   };
 

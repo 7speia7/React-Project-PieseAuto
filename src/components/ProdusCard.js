@@ -11,18 +11,19 @@ const ProdusCard = ({ produs })=> {
   return (
     <Link to={`/produs/${produs._id}`}>
       <Box ml="37%"
-        data-testid="note-card"
-        width="250px"
+        width="15em"
+        height="10em"
         overflow="hidden"
         padding="12px"
         boxShadow="md"
         borderRadius="8px"
         marginBottom="12px"
-        bg="#1a759f"
+        bg="#ffee32"
       >
         <Text 
           fontSize="lg"
-          color="#d9ed92"
+          color="#202020"
+          align="center"
           marginTop="1"
           fontWeight="semibold"
           as="h3"
@@ -32,24 +33,24 @@ const ProdusCard = ({ produs })=> {
           {produs.title}
         </Text>
         <Text
-        color="#d9ed92"
-          mt="1"
+        color="#202020"
+          mt="10%"
           lineHeight="tight"
           isTruncated
           maxH="50px"
           overflow="hidden"
         >
-          {produs.text}
+          Descriere: {produs.text}
         </Text>
         <Text
-        color="#d9ed92"
-          mt="1"
+        color="#202020"
+          mt="10%"
           lineHeight="tight"
           isTruncated
           maxH="50px"
           overflow="hidden"
         >
-          {produs.price}
+          Pret: {produs.price} $
         </Text>
       </Box>
     </Link>
