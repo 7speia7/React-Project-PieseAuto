@@ -34,7 +34,7 @@ function Signup({ setIsAuthenticated }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/api/user`, {
+    fetch(`https://pieseautonodejs.herokuapp.com/api/user`, {
       method: 'POST',
       
       body: JSON.stringify({
@@ -53,7 +53,7 @@ function Signup({ setIsAuthenticated }) {
       }
      
     }).then((res) => {
-      fetch(`http://localhost:5000/api/auth/login`, {
+      fetch(`https://pieseautonodejs.herokuapp.com/api/auth/login`, {
       method: 'POST',
      
       body: JSON.stringify({

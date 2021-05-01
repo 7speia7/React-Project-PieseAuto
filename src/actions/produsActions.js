@@ -10,7 +10,7 @@ export const getProdusAction = () =>
     });
 
     try {
-      const produs = await fetch(`http://localhost:5000/api/produs`,{
+      const produs = await fetch(`https://pieseautonodejs.herokuapp.com/api/produs`,{
         method: 'GET',  
       headers: {
           Authorization: localStorage.getItem('token'),
@@ -39,7 +39,7 @@ export const createProdusAction = (produs) => {
   return async (dispatch) => {
     try {
       const createdProdus = await fetch(
-        `http://localhost:5000/api/produs/`,
+        `https://pieseautonodejs.herokuapp.com/api/produs/`,
         {
           method: "POST",
           body: JSON.stringify({ title: produs.title, text: produs.text, price: produs.price, isBought: false}),
@@ -67,7 +67,7 @@ export const editProdusAction = (produsId, produs) => {
   return async (dispatch) => {
     try {
       const editedProdus = await fetch(
-        `http://localhost:5000/api/produs/${produsId}`,
+        `https://pieseautonodejs.herokuapp.com/api/produs/${produsId}`,
         {
           method: "PUT",
           body: JSON.stringify({ title: produs.title, text: produs.text, price: produs.price, isBought: false }),
@@ -95,7 +95,7 @@ export const DELETE_PRODUS_SUCCESS = 'DELETE_PRODUS_SUCCESS';
 export const deleteProdusAction = (produsId) => async (dispatch) => {
   try {
     const deletedProdus = await fetch(
-      `http://localhost:5000/api/produs/${produsId}`,
+      `https://pieseautonodejs.herokuapp.com/api/produs/${produsId}`,
       {
         method: "DELETE",
         headers: {
@@ -120,7 +120,7 @@ export const getProdusActionForUser = () =>
     });
 
     try {
-      const produs = await fetch(`http://localhost:5000/api/produs/onlyUser`,{
+      const produs = await fetch(`https://pieseautonodejs.herokuapp.com/api/produs/onlyUser`,{
         method: 'GET',  
       headers: {
           Authorization: localStorage.getItem('token'),

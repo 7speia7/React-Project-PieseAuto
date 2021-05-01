@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    fetch(`http://localhost:5000/api/auth/check-auth`, {
+    fetch(`https://pieseautonodejs.herokuapp.com/api/auth/check-auth`, {
       headers: {
         Authorization: token,
       },
@@ -52,7 +52,7 @@ function App() {
   
   const loguot = () => {
     localStorage.removeItem("token");
-    fetch(`http://localhost:5000/api/auth/logout`, {
+    fetch(`https://pieseautonodejs.herokuapp.com/api/auth/logout`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',

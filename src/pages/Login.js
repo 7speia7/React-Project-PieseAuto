@@ -28,7 +28,7 @@ function Login({ setIsAuthenticated }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/api/auth/login`, {
+    fetch(`https://pieseautonodejs.herokuapp.com/api/auth/login`, {
       method: 'POST',
       body: JSON.stringify({
         username,
