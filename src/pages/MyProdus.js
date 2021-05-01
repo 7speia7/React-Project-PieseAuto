@@ -2,10 +2,9 @@ import React from 'react';
 import { Heading, Box, useColorModeValue } from '@chakra-ui/react';
 import { connect } from 'react-redux';
 
+import ProdusCard from '../components/ProdusCard';
 
-import ProdusCardToBuy from '../components/ProdusCardToBuy';
-
-const Home = (props) => {
+const MyProdus = (props) => {
   console.log("produs", props.produs);
   return (
     <div>
@@ -18,12 +17,12 @@ const Home = (props) => {
         w={"50%"}
         p={8}>
         <Heading as="h1" textAlign="center" paddingBottom="36px">
-          Produse
+          Produsele Mele
       </Heading>
         {
           props.produs ?
             props.produs.map((produs, id) => {
-              return <ProdusCardToBuy key={id} produs={produs} />;
+              return <ProdusCard key={id} produs={produs} />;
             }) : null
         }
 
@@ -37,4 +36,4 @@ const mapStateToProps = (state) => {
   return { loading: state.loading, error: state.error, produs: state.produs };
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(MyProdus);

@@ -6,18 +6,18 @@ import { useDispatch } from 'react-redux';
 
 import { deleteProdusAction } from '../actions/produsActions';
 
-function DeleteModal() {
+function CumparaModal() {
   const history = useHistory();
   const params = useParams();
   const dispatch = useDispatch();
 
   const onDismiss = (e) => {
-    history.push(`/myprodus/${params.id}`);
+    history.push(`/produs/${params.id}`);
   };
 
   const onDelete = () => {
     dispatch(deleteProdusAction(params.id)).then(() => {
-      history.push('/myprodus/');
+      history.push('/');
     });
   };
 
@@ -47,7 +47,7 @@ function DeleteModal() {
         padding="32px"
       >
         <Heading pb="24px" size="md">
-          Sunteti siguri ca doriti sa stergeti produsul?
+          Sunteti siguri ca doriti sa cumparati produsul?
         </Heading>
         <Button
           backgroundColor="#202020"
@@ -58,7 +58,7 @@ function DeleteModal() {
           Cancel
         </Button>
         <Button backgroundColor="red.600" color="white" onClick={onDelete}>
-          Delete
+          Cumparati
         </Button>
       </Box>
     </Box>,
@@ -66,4 +66,4 @@ function DeleteModal() {
   );
 }
 
-export default DeleteModal;
+export default CumparaModal;

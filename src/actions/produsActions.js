@@ -109,3 +109,34 @@ export const deleteProdusAction = (produsId) => async (dispatch) => {
     dispatch({ type: DELETE_PRODUS_ERROR, payload: error.message });
   }
 };
+
+export const GET_PRODUS_FOR_USER_SUCCESS = 'GET_PRODUS_FOR_USER_SUCCESS';
+export const GET_PRODUS_FOR_USER_ERROR = 'GET_PRODUS_FOR_USER_ERROR';
+
+export const getProdusActionForUser = () => 
+  async (dispatch) => {
+    dispatch({
+      type: GET_PRODUS_LOADING_START,
+    });
+
+    try {
+      const produs = await fetch(`http://localhost:5000/api/produs/onlyUser`,{
+        method: 'GET',  
+      headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      }).then((res) => res.json());
+    console.log(produs);
+      if(Array.isArray(produs)){
+        dispatch({
+          type: GET_PRODUS_FOR_USER_SUCCESS,
+          payload: produs,
+        });
+      }
+    } catch (error) {
+      dispatch({
+        type: GET_PRODUS_FOR_USER_ERROR,
+        payload: 'Ceva nu a mers bine',
+      });
+    }
+  };

@@ -109,10 +109,11 @@ p={8}>
   </FormControl>
   <Stack spacing={10}>
     <Button type="Submit"
-      bg={'blue.400'}
+      bg={'#202020'}
       color={'white'}
       _hover={{
-        bg: 'blue.500',
+        bg: '#ffee32',
+        color:"black"
       }}>
       Sign up
     </Button>

@@ -5,6 +5,8 @@ import {
     CREATE_PRODUS_SUCCESS,
     EDIT_PRODUS_SUCCESS,
     DELETE_PRODUS_SUCCESS,
+    GET_PRODUS_FOR_USER_ERROR,
+    GET_PRODUS_FOR_USER_SUCCESS
   } from '../actions/produsActions';
   
   const initialState = {
@@ -28,6 +30,19 @@ import {
           error: '',
         };
       case GET_PRODUS_ERROR:
+        return {
+          ...state,
+          error: action.payload,
+          loading: false,
+        };
+        case GET_PRODUS_FOR_USER_SUCCESS:
+        return {
+          ...state,
+          produs: action.payload,
+          loading: false,
+          error: '',
+        };
+      case GET_PRODUS_FOR_USER_ERROR:
         return {
           ...state,
           error: action.payload,

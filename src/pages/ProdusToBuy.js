@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, Link, Switch, Route } from 'react-router-dom';
 import { Text, Flex, Box, Heading, Button } from '@chakra-ui/react';
-import DeleteModal from '../components/DeleteModal';
+import CumparaModal from '../components/CumparaModal';
 
-function Produs() {
+function ProdusToBuy() {
     const params = useParams();
     
     
@@ -43,7 +43,7 @@ p={8}>
       </Box>
 
       <Box w="25%">
-        <Link to={`/myprodus/${selectedProdus._id}/edit`}>
+        <Link to={`/produs/${selectedProdus._id}/delete`}>
           <Button
             backgroundColor="#202020"
             color="white"
@@ -52,28 +52,16 @@ p={8}>
             display="block"
             mb="16px"
           >
-            Edit
-          </Button>
-        </Link>
-        <Link to={`/myprodus/${selectedProdus._id}/delete`}>
-          <Button
-            backgroundColor="red.600"
-            color="white"
-            textAlign="center"
-            w="120px"
-            display="block"
-            mb="16px"
-          >
-            Delete
+            Cumpara
           </Button>
         </Link>
       </Box>
       <Switch>
-        <Route path="/myprodus/:id/delete" component={DeleteModal} />
+        <Route path="/produs/:id/delete" component={CumparaModal} />
       </Switch>
     </Flex>
     </Box>
   );
 }
 
-export default Produs;
+export default ProdusToBuy;

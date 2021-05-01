@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { Box, Text,Flex,Image } from '@chakra-ui/react';
 
-const ProdusCard = ({ produs })=> {
+const ProdusCardToBuy = ({ produs })=> {
   if (!produs || !produs.title || !produs.text) {
     return null;
   }
 
   return (
-    <Link to={`/myprodus/${produs._id}`}>
+    <Link to={`/produs/${produs._id}`}>
       <Flex alignItems="center" justifyContent="center">
       <Box 
         width="15em"
@@ -66,4 +66,4 @@ const ProdusCard = ({ produs })=> {
   );
 }
 
-export default ProdusCard;
+export default ProdusCardToBuy;

@@ -14,12 +14,14 @@ import { useDispatch } from 'react-redux';
 
 import Home from './pages/Home';
 import CreateProdus from './pages/CreateProdus';
-import { getProdusAction } from './actions/produsActions';
+import { getProdusAction,getProdusActionForUser } from './actions/produsActions';
 import Produs from './pages/Produs';
 import EditProdus from './pages/EditProdus.js';
+import MyProdus from './pages/MyProdus.js';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
 import Signup from './pages/Signup';
+import ProdusToBuy from './pages/ProdusToBuy';
 
 
 
@@ -67,7 +69,16 @@ function App() {
       }
     });
 }
-
+  const getMyProdus = () => {
+    if(isAuthenticated === true){
+      dispatch(getProdusActionForUser());
+    }
+  };
+  const getProdus = () => {
+    if(isAuthenticated === true){
+      dispatch(getProdusAction());
+    }
+  };
 
   useEffect(() => {
     if(isAuthenticated === true){
@@ -85,14 +96,18 @@ function App() {
           <Heading color="white" as="h2">Piese Auto</Heading>
             <NavLink  to="/">
             {isAuthenticated ?
-                <Link   as="h5"  color="white">Magazin</Link>
+                <Link  onClick={getProdus} as="h5"  color="white">Magazin</Link>
+                :null}
+              </NavLink>
+              <NavLink  to="/myprodus">
+            {isAuthenticated ?
+                <Link  onClick={getMyProdus} as="h5"  color="white">Produsele Mele</Link>
                 :null}
               </NavLink>
             
-            
               <NavLink to="/create-produs">
               {isAuthenticated ?
-                <Link  color="white">Adauga produs</Link>
+                <Link  color="white">Adauga Produs</Link>
                 :null}
                 </NavLink>
            
@@ -159,14 +174,20 @@ function App() {
         <Box width="100%" >
           <Switch>            
              <PrivateRoute
-            path="/produs/:id/edit"
+            path="/myprodus/:id/edit"
             isAuthenticated={isAuthenticated}
             render={(props) => <EditProdus {...props} />}
           />
+          
             <PrivateRoute
-            path="/produs/:id"
+            path="/myprodus/:id"
             isAuthenticated={isAuthenticated}
             render={(props) => <Produs {...props} />}
+          />
+           <PrivateRoute
+            path="/produs/:id"
+            isAuthenticated={isAuthenticated}
+            render={(props) => <ProdusToBuy {...props} />}
           />
           <PrivateRoute
             path="/create-produs"
@@ -187,10 +208,16 @@ function App() {
               )}
             />
             <PrivateRoute
-              path="/"              
+          path="/myprodus"
+          isAuthenticated={isAuthenticated}
+          render={(props) => <MyProdus {...props} />}
+        />
+            <PrivateRoute
+              path="/"      
               isAuthenticated={isAuthenticated}
               render={(props) => <Home {...props} />}
               />
+              
           </Switch>
         </Box>
         </Flex>
